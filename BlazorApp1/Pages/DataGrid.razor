@@ -1,0 +1,38 @@
+﻿@page "/datagrid"
+<PageTitle>DataGrid</PageTitle>
+
+
+@using IgniteUI.Blazor.Controls
+@inject IIgniteUIBlazor IgniteUIBlazor
+
+<div class="container vertical">
+    <div class="container vertical">
+
+        @if (Data != null)
+        {
+            <div style="overflow: hidden">
+                <IgbDataGrid Height="100%" Width="100%"
+                      DataSource="Data"
+                      AutoGenerateColumns="false"
+                      IsPagerVisible="true"
+                      PageSize="15"
+                      CellEditStarted="OnCellEditStarted"
+                      CellEditEnded="OnCellEditEnded"
+                    >
+                    <IgbTextColumn IsEditable="false" Field="ProductID" Width="@("*>110")" HeaderText="ID" HorizontalAlignment="CellContentHorizontalAlignment.Center" />
+                    <IgbTextColumn Field="ProductName" HeaderText="Product" Width="@("*>120")" />
+                    <IgbImageColumn IsEditable="false" Field="CountryFlag" HeaderText="Country" Width="@("*>130")" />
+                    <IgbNumericColumn Field="ProductPrice" HeaderText="Price" Width="@("*>110")" PositivePrefix="" ShowGroupingSeparator="true" MaxFractionDigits="0" MinFractionDigits="0" />
+                    <IgbNumericColumn Field="OrderItems" HeaderText="Orders" Width="@("*>140")" PositivePrefix="" ShowGroupingSeparator="true" MaxFractionDigits="0" MinFractionDigits="0" />
+                    <IgbNumericColumn IsEditable="false" Field="OrderValue" HeaderText="Order Value" Width="@("*>160")" PositivePrefix="$" ShowGroupingSeparator="true" MaxFractionDigits="0" MinFractionDigits="0" />
+                    <IgbDateTimeColumn Field="OrderDate" HeaderText="Order Date" Width="@("*>150")" FormatString="{0}" EditorFormatString="yyyy-MM-dd">
+                        <IgbDateTimeFormatSpecifier Locale="fr-CA" Year="numeric" Month="2-digit" Day="2-digit" />
+                    </IgbDateTimeColumn>
+                    <IgbNumericColumn Field="Margin" Width="@("*>140")" PositivePrefix="$" />
+                    <IgbNumericColumn Field="Profit" Width="@("*>140")" PositivePrefix="$" ShowGroupingSeparator="true" MaxFractionDigits="0" MinFractionDigits="0" />
+                    <IgbTextColumn Field="Status" Width="@("*>140")" />
+                </IgbDataGrid>
+            </div>
+        }
+    </div>
+</div>
