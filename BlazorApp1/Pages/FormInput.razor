@@ -1,0 +1,45 @@
+﻿@page "/FormInput"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>Input 테스트</PageTitle>
+
+<div class="card">
+    <div class="card-header">Checkbox</div>
+    <div class="card-body">
+        <IgbCheckbox data @ref="Check1Ref" @bind-Checked="Check1">Label Check Info</IgbCheckbox>
+    </div>
+    <div class="card-body">
+        <div>값: @Check1</div>
+
+        <button class="btn btn-primary" @onclick="OnBtnClick1">Check 반전</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Switch</div>
+    <div class="card-body">
+        <IgbSwitch @bind-Checked="Switch1">Label Switch Info</IgbSwitch>
+    </div>
+    <div class="card-body">
+        @Switch1
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-header">RadioGroup RadioButton</div>
+    <div class="card-body">
+        <IgbRadioGroup Alignment="@RadioGroupAlignment.Horizontal">
+            <IgbRadio @bind-Checked="@Radio1">Apple</IgbRadio>
+            <IgbRadio @bind-Checked="@Radio2">Banana</IgbRadio>
+            <IgbRadio @bind-Checked="@Radio3">Mango</IgbRadio>
+            <IgbRadio @bind-Checked="@Radio4">Orange</IgbRadio>
+        </IgbRadioGroup>
+    </div>
+    <div class="card-body">
+        <div>값1: @Radio1</div>
+        <div>값2: @Radio2</div>
+        <div>값3: @Radio3</div>
+        <div>값4: @Radio4</div>
+    </div>
+</div>

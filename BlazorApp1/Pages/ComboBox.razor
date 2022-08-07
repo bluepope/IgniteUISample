@@ -1,0 +1,26 @@
+﻿@page "/ComboBox"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>ComboBox 테스트</PageTitle>
+
+
+<div class="container vertical">
+        <div class="container vertical">
+            @if (CountryData != null)
+            {
+                <IgbMultiColumnComboBox Height="50px" Width="400px"
+                    @ref="Combo1Ref"
+                    DataSource="CountryData"
+                    Fields="@(new string[] { "Country" })"
+                    TextField="Country"
+                    ValueField="@(new string[] { "Pop" })"
+                    SelectedValueChanged="(e) => { SelectedData = Convert.ToDouble(e.NewValue); StateHasChanged(); }"
+                    Placeholder="Choose a country"
+                    Value="SelectedData"
+                    DefaultColumnWidth="200"/>
+
+                    @SelectedData
+            }
+        </div>
+    </div>
+

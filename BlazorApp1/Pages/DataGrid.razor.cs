@@ -6,6 +6,9 @@ namespace BlazorApp1.Pages
 {
     public partial class DataGrid : ComponentBase
     {
+        [Inject]
+        IIgniteUIBlazor IgniteUIBlazor { get; set; }
+
         private List<SaleInfo> Data;
 
         private Random Rand = new Random();

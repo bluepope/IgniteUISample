@@ -1,0 +1,21 @@
+﻿@page "/DatePicker"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>DatePicker 테스트</PageTitle>
+
+<div class="card">
+    <div class="card-header">DateTime</div>
+    <div class="card-body">
+        <IgbDatePicker @bind-Value="Date1"
+                       @ref="Date1Ref"
+                       FormatString="yyyy-MM-dd"
+                       MinDate="@MinDate"
+                       MaxDate="@MaxDate"
+                       ShowClearButton="true"
+                       ShowTodayButton="true"
+                       />
+    </div>
+    <div class="card-body">
+        <div>값: @Date1.ToString("yyyy-MM-dd")</div>
+    </div>
+</div>

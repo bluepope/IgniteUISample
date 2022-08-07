@@ -1,0 +1,45 @@
+﻿@page "/Textbox"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>Textbox 테스트</PageTitle>
+
+
+<div class="card">
+    <div class="card-header">단순 Textbox</div>
+    <div class="card-body">
+        <IgbInput @bind-Value="Str1" Label="단순Text" Maxlength="10" />
+    </div>
+    <div class="card-body">
+        <div>결과값</div>
+        <div>string 변환: @Str1</div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-header">숫자형</div>
+    <div class="card-body">
+        <IgbInput Ref="Num1Ref" @bind-Value="Num1Str"
+        DisplayType="InputType.Number" Inputmode="InputInputmode.Numeric"
+        Label="IntOrDecimal" Required="true"
+        Min="0" Max="100" Change="(e) => { if (Convert.ToInt32(e.Detail) > 100) { Num1 = 100; } }" />
+    </div>
+    <div class="card-body">
+        <div>결과값</div>
+        <div>int 원본: @Num1</div>
+        <div>string 변환: @Num1Str</div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-header">여러 Textbox</div>
+    <div class="card-body">
+        <IgbInput @bind-Value="Str1" Label="단순Text" Required="true" Size="SizableComponentSize.Medium">
+            <span slot="prefix">입력 앞쪽 표시</span>
+            <IgbIcon @ref="IconRef" slot="suffix" IconName="phone" Collection="material" />
+        </IgbInput>
+    </div>
+    <div class="card-body">
+    </div>
+</div>
