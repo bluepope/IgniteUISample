@@ -1,0 +1,74 @@
+﻿@page "/Chart"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>Chart 테스트</PageTitle>
+
+<div class="container vertical">
+    <button class="btn btn-sm btn-primary" @onclick="OnSearch">조회</button>
+
+    <div class="legend-title">
+        Highest Grossing Movie Franchises
+    </div>
+
+    <div class="legend">
+        <IgbLegend Orientation="LegendOrientation.Horizontal"
+                   Name="Legend"
+                   @ref="ColumnChartLegend">
+        </IgbLegend>
+    </div>
+
+    <div class="container vertical fill">
+        <IgbCategoryChart ChartType="CategoryChartType.Column"
+                           IsTransitionInEnabled="true"
+                          TransitionInMode="CategoryTransitionInMode.SweepFromBottom"
+                          TransitionInDuration="1000"
+                          XAxisInterval="1"
+                          IsCategoryHighlightingEnabled="true"
+                          YAxisLabelLeftMargin="0"
+                          YAxisTitleLeftMargin="10"
+                          YAxisTitleRightMargin="5"
+                          YAxisTitle="Billions of U.S. Dollars"
+                          DataSource="HighestGrossingMovies"
+                          IsHorizontalZoomEnabled="false"
+                          IsVerticalZoomEnabled="false"
+                          CrosshairsDisplayMode="CrosshairsDisplayMode.None"
+                          ToolTipType="ToolTipType.Item"
+                          Height="400px"
+                          Legend="ColumnChartLegend"
+                          @ref="chart1">
+        </IgbCategoryChart>
+    </div>
+
+    <div class="mt-2">
+        <div class="legend-title">
+            Highest Grossing Movie Franchises
+        </div>
+
+        <div class="legend">
+            <IgbLegend Orientation="LegendOrientation.Horizontal"
+                       @ref="LineChartLegend">
+            </IgbLegend>
+        </div>
+
+        <div class="container vertical fill">
+            <IgbCategoryChart ChartType="CategoryChartType.Line"
+                              IsTransitionInEnabled="true"
+                              TransitionInMode="CategoryTransitionInMode.SweepFromLeft"
+                              TransitionInDuration="1000"
+                              YAxisLabelLeftMargin="0"
+                              YAxisTitleLeftMargin="10"
+                              YAxisTitleRightMargin="5"
+                              YAxisTitle="TWh"
+                              DataSource="HighestGrossingMovies"
+                              IncludedProperties="@(new string[] { "Franchise", "TotalRevenue", "HighestGrossing" })"
+                              IsHorizontalZoomEnabled="false"
+                              IsVerticalZoomEnabled="false"
+                              ComputedPlotAreaMarginMode="ComputedPlotAreaMarginMode.Series"
+                              Legend="LineChartLegend"
+                              Height="400px"
+                              @ref="chart2">
+            </IgbCategoryChart>
+        </div>
+    </div>
+    
+</div>
