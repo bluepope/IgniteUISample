@@ -1,0 +1,16 @@
+﻿@page "/Excel"
+@using IgniteUI.Blazor.Controls
+
+<PageTitle>Excel 테스트</PageTitle>
+
+<div class="container">
+    <div>
+        <button @onclick="CreateXlsx" class="btn btn-primary">Save Workbook to XLSX</button>
+        <button @onclick="CreateXls" class="btn btn-primary">Save Workbook to XLS</button>
+    </div>
+
+    <div class="mt-2">
+        <InputFile OnChange="@LoadFile" />
+        <button @onclick="Upload" class="btn btn-primary">Upload</button>
+    </div>
+</div>
